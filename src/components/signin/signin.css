@@ -2,39 +2,37 @@
   border: 3px solid #f1f1f1;
   width: 23em;
 }
-h2{
-    margin: auto;
-    text-align: center;
+h2 {
+  margin: auto;
+  text-align: center;
 }
 /* Full-width inputs */
-.input{
+.input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  box-sizing: border-box; 
-  border-radius:2em ;
+  box-sizing: border-box;
+  border-radius: 2em;
 }
 
 /* Set a style for all buttons */
 .signin-btn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius:2em ;
+  border-radius: 2em;
 }
-label{
+label {
   font-size: larger;
 }
 /* Add a hover effect for buttons */
 .signin-btn:hover {
   opacity: 0.8;
 }
-
-
 
 /* Add padding to containers */
 .container {
@@ -45,5 +43,4 @@ label{
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
- 
 }
