@@ -3,6 +3,8 @@ import './App.css';
 import Logo from './components/logo/Logo';
 import FaceDetectionBox from './components/facedetectionbox/FaceDetectionBox';
 import SignUp from './components/signup/SignUp';
+import SignIn from './components/signin/SignIn';
+import Navigation from './components/navigation/Navigation'
 import ImageUrl from './components/imageurl/ImageUrl';
 
 import Clarifai from "clarifai";
@@ -18,6 +20,8 @@ constructor(props) {
     input:'',
     imageurl:'',
     box:{},
+    isAuthenticated:false,
+    route:"signin"
   };
 }
  faceLocationCalc=(data)=>{
@@ -35,13 +39,16 @@ constructor(props) {
   }
   return box
  }
+
  drawBox=(data)=>{
    this.setState({box:data})
  }
+
  onInputChange=(event)=>{
   this.setState({imageurl:event.target.value});
   console.log(event.target.value)
  }
+
  onButtonSubmit=(e)=>{
   app.models
   .predict(Clarifai.FACE_DETECT_MODEL, this.state.imageurl)
@@ -50,15 +57,36 @@ constructor(props) {
   this.setState({input:this.state.imageurl});
  }
 
+ onRouteChange=(route)=>{
+  if(route==='signout'){
+    this.setState({isAuthenticated:false});
+  }
+    this.setState({route:route});
+ }
+
+ authenticate=(state)=>{
+  this.setState({isAuthenticated:state});
+ }
+
+
   render() {
-    return( 
-    <div>
-      <Logo/>
-      <SignUp/>
-      <ImageUrl onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-      <FaceDetectionBox imgurl={this.state.input} box={this.state.box}/>
-    </div>
+    const {input,box,isAuthenticated,route}=this.state
+    return (
+      <div>
+        <Navigation isAuthenticated={isAuthenticated} onRouteChange={this.onRouteChange}/>
+        {isAuthenticated?
+        <div>
+          <ImageUrl onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+          <FaceDetectionBox imgurl={input} box={box}/>
+        </div>
+        :<div>
+          {route==="signin"? <SignIn authenticate={this.authenticate}/>:<SignUp authenticate={this.authenticate}/>}
+        </div>
+        }
+      </div>
+    
     )
+    
   }
 }
 

@@ -1,21 +1,18 @@
 import React from 'react';
-import './signup.css'
-
-const SignUp = ({authenticate}) => {
-    return (
-        <div className='center'>
-        <div className='signup'>
-          <h2>SignUp</h2>
+import './signin.css'
+const SignIn = ({authenticate}) => {
+    console.log("auth",)
+    return(
+      <div className='center'>
+        <div className='signin'>
+          <h2>SignIn</h2>
           <div className="container">
           <label for="uname"><b>Username</b></label>
           <input className='input' type="text" placeholder="Enter Username" name="uname" />
-
-          <label for="email"><b>Email</b></label>
-          <input className='input' type="text" placeholder="Enter Email" name="email"/>
     
           <label for="psw"><b>Password</b></label>
           <input className='input' type="password" placeholder="Enter Password" name="psw" />
-          <button className='signup-btn' onClick={()=>authenticate(true)}>Signup</button>
+          <button className='signin-btn' onClick={()=>authenticate(true)}>SignIn</button>
           </div>
   
           {/* <div className="container" style={{backgroundColor:"#f1f1f1"}}>
@@ -23,9 +20,9 @@ const SignUp = ({authenticate}) => {
             <span className="psw">Forgot <a href="#">password?</a></span>
           </div> */}
         </div>
-      </div>)
+      </div>
+    );
 }
 
 
-
-export default SignUp;
+export default SignIn;

@@ -1,5 +1,5 @@
 import React from 'react';
-import imageurl from './imageurl.css'
+import './imageurl.css'
 
 const ImageUrl = ({onInputChange,onButtonSubmit}) => {
     return( 
