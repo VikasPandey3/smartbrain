@@ -21,6 +21,7 @@ class App extends React.Component {
       box: {},
       isAuthenticated: false,
       route: "signin",
+      user:{}
     };
   }
   faceLocationCalc = (data) => {
@@ -43,7 +44,6 @@ class App extends React.Component {
 
   onInputChange = (event) => {
     this.setState({ imageurl: event.target.value });
-    console.log(event.target.value);
   };
 
   onButtonSubmit = (e) => {
@@ -56,21 +56,23 @@ class App extends React.Component {
 
   onRouteChange = (route) => {
     if (route === "signout") {
-      this.setState({ isAuthenticated: false });
-    }
+      this.setState({ isAuthenticated: false,route: 'signin' });
+    }else{
     this.setState({ route: route });
+    }
   };
 
-  authenticate = (state) => {
-    this.setState({ isAuthenticated: state });
+  authenticate = (state,user) => {
+    this.setState({ isAuthenticated: state,user:user });
   };
 
   render() {
-    const { input, box, isAuthenticated, route } = this.state;
+    const { input, box, isAuthenticated, route,user } = this.state;
     return (
       <div>
         <Navigation
           isAuthenticated={isAuthenticated}
+          user={user}
           onRouteChange={this.onRouteChange}
         />
         {isAuthenticated ? (

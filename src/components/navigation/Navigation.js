@@ -1,12 +1,13 @@
 import React from "react";
 import Logo from "../logo/Logo";
 import "./navigation.css";
-const Navigation = ({ isAuthenticated, onRouteChange }) => {
+const Navigation = ({ isAuthenticated, onRouteChange,user }) => {
   return (
     <div className="navigation">
       <Logo />
       {isAuthenticated ? (
         <div className="navigation-right">
+          <div className="user">{user.username}</div>
           <div
             className="navigation-link"
             onClick={() => onRouteChange("signout")}

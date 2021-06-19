@@ -8,11 +8,12 @@ h2 {
 }
 /* Full-width inputs */
 .input {
+  outline: none;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border-radius: 2em;
+  /* border-radius: 2em; */
 }
 
 /* Set a style for all buttons */
@@ -20,11 +21,11 @@ h2 {
   background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px 0 0 0;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 2em;
+  /* border-radius: 2em; */
 }
 label {
   font-size: larger;
@@ -38,9 +39,13 @@ label {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media only screen and (max-width: 600px) {
+  .signup{
+    border: 3px solid #f1f1f1;
+    width: 18em;
+  }
 }

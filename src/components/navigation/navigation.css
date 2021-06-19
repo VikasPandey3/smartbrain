@@ -15,6 +15,11 @@
     font-size: large;
 }
 .navigation-link:hover{
-    color: rgb(217, 204, 204);
-    border-bottom: 1px solid rgb(217, 204, 204) ;
+    /* color: rgb(217, 204, 204);
+    border-bottom: 1px solid rgb(250, 247, 247) ; */
+}
+.user{
+    margin: 0 1em 8em 0em;
+    font-size: large;
+
 }
