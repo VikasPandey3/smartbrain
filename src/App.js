@@ -6,29 +6,28 @@ import SignIn from "./components/signin/SignIn";
 import Navigation from "./components/navigation/Navigation";
 import ImageUrl from "./components/imageurl/ImageUrl";
 
-import Clarifai from "clarifai";
-const app = new Clarifai.App({
-  apiKey: "af977778b13042c9b49be6c596dc87c9",
-});
-
+const initstate={
+  input: "",
+  imageurl: "",
+  box: {},
+  isAuthenticated: false,
+  route: "signin",
+  user:{}
+};
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      input: "",
-      imageurl: "",
-      box: {},
-      isAuthenticated: false,
-      route: "signin",
-      user:{}
-    };
+    this.state = initstate
+
   }
   faceLocationCalc = (data) => {
     let clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     let img = document.getElementById("image");
+    
     let width = Number(img.width);
     let height = Number(img.height);
+    console.log(clarifaiFace,"h",height,"w",width)
     const box = {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
@@ -39,6 +38,7 @@ class App extends React.Component {
   };
 
   drawBox = (data) => {
+    console.log(data)
     this.setState({ box: data });
   };
 
@@ -47,16 +47,27 @@ class App extends React.Component {
   };
 
   onButtonSubmit = (e) => {
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, this.state.imageurl)
-      .then((response) => this.drawBox(this.faceLocationCalc(response)))
-      .catch((error) => console.log(error));
-    this.setState({ input: this.state.imageurl });
+    this.setState({ input:"" });
+    fetch("http://127.0.0.1:3002/imageurl",{
+      method:'post',
+      headers: {'Content-Type': 'application/json'},
+      body:JSON.stringify({
+       imageurl:this.state.imageurl
+      })
+    })
+    .then(res=>res.json())
+    .then((response) =>{
+       this.setState({ input: this.state.imageurl });
+       this.drawBox(this.faceLocationCalc(response));
+       
+      })
+    .catch((error) => console.log(error));
+    
   };
 
   onRouteChange = (route) => {
     if (route === "signout") {
-      this.setState({ isAuthenticated: false,route: 'signin' });
+      this.setState(initstate);
     }else{
     this.setState({ route: route });
     }

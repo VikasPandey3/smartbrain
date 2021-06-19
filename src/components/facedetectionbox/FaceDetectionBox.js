@@ -1,6 +1,7 @@
 import React from "react";
 import "./facedetection.css";
 const FaceDetectionBox = ({ imgurl, box }) => {
+  console.log(box);
   return (
     <div className="center">
       <div className="facedetection">
