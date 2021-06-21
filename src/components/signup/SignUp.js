@@ -23,7 +23,7 @@ class SignUp extends React.Component  {
   onSubmit=()=>{
     const {authenticate}=this.props;
     const {username,signUpEmail,signUpPassword}=this.state;
-    fetch("http://127.0.0.1:3002/signup",{
+    fetch("https://polar-fjord-24275.herokuapp.com/signup",{
       method:'post',
       headers: {'Content-Type': 'application/json'},
       body:JSON.stringify({

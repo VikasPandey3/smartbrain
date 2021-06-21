@@ -47,8 +47,8 @@ class App extends React.Component {
   };
 
   onButtonSubmit = (e) => {
-    this.setState({ input:"" });
-    fetch("http://127.0.0.1:3002/imageurl",{
+    this.setState({ input: this.state.imageurl });
+    fetch("https://polar-fjord-24275.herokuapp.com/imageurl",{
       method:'post',
       headers: {'Content-Type': 'application/json'},
       body:JSON.stringify({
@@ -57,7 +57,7 @@ class App extends React.Component {
     })
     .then(res=>res.json())
     .then((response) =>{
-       this.setState({ input: this.state.imageurl });
+       
        this.drawBox(this.faceLocationCalc(response));
        
       })
