@@ -27,7 +27,6 @@ class SignIn extends React.Component{
       })
     }).then(resp=> resp.json())
      .then(user=>{
-       console.log(user);
        if(user.id){
           authenticate(true,user);
        }else{

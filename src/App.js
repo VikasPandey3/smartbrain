@@ -27,12 +27,13 @@ class App extends React.Component {
     
     let width = Number(img.width);
     let height = Number(img.height);
-    console.log(clarifaiFace,"h",height,"w",width)
     const box = {
       leftCol: clarifaiFace.left_col * width,
       topRow: clarifaiFace.top_row * height,
       rightCol: width - clarifaiFace.right_col * width,
       bottomRow: height - clarifaiFace.bottom_row * height,
+      width:width,
+      height:height
     };
     return box;
   };

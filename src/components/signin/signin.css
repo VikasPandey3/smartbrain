@@ -45,6 +45,13 @@ label {
 @media only screen and (max-width: 600px){
   .signin{
     border: 3px solid #f1f1f1;
-    width: 18em;
+    width: 16em;
+  }
+  .signin-btn{
+    padding: 10px 16px;
+  }
+  .input{
+    padding: 10px 16px;
+    margin: 4px 0 0 0;
   }
 }

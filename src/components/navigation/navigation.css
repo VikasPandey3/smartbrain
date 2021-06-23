@@ -11,7 +11,8 @@
 .navigation-link{
     cursor: pointer;
     border-bottom: 1px solid black ;
-    margin: 0 1em 8em 1em;
+    margin: 0 1em 0em 0em;
+    height: 20px;
     font-size: large;
 }
 .navigation-link:hover{

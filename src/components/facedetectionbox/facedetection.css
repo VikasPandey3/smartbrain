@@ -1,17 +1,42 @@
-.center {
-  display: flex;
-  justify-content: center;
+.x {
+  position: relative;
+  width:fit-content;
+  height: auto;
+  background-color: black;
+  color: wheat;
+  
+}
+.face-box{
+  position: absolute;
+  border: solid 2px blue;
+  display:inline-block;
+  z-index: 1;
+  margin: auto;
+  cursor: pointer;
+}
+.scroll{
+  position: relative;
+  width: fit-content;
+  overflow-x: auto;
+  height: auto;
 }
 
-.face-box {
-  position: absolute;
-  box-shadow: 0 0 0 3px #149df2 inset;
+.facedetection {
+  text-align: center;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  cursor: pointer;
-}
-.facedetection {
-  position: absolute;
   margin-top: 10px;
+}
+
+#image{
+  max-width: 400px;
+  height: auto;
+}
+@media only screen and (max-width:600px) {
+  /* .x{
+    width: 300px;
+    /* overflow-x: auto; */
+  
 }

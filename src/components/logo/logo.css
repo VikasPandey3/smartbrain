@@ -14,6 +14,20 @@
   height: 100px;
   width: 100px;
 }
-img {
+.logo-image {
   margin: 16px;
+}
+@media only screen and (max-width:600px){
+  .logo,.Tilt{
+    /* margin: 2em; */
+    width: 80px;
+    height:80px;
+  }
+  .logo-image{
+    margin: 8px;
+  }
+}
+
+@media only screen and(max-width:600px) {
+  
 }
